@@ -18,7 +18,7 @@ public class BirdServiceImpl implements BirdService {
      */
     @Override
     public String save(BirdEntity birdEntity) {
-        log.info("新增成功，参数："+birdEntity.getName());
+        log.info("新增成功，参数 ："+birdEntity.getName());
         return "新增成功，参数："+birdEntity.getName();
     }
 
