@@ -5,22 +5,22 @@ import yys.entity.BirdEntity;
 public interface BirdService {
     /**
      * 新增
-     * @param birdEntity
-     * @return
+     * @param birdEntity 鸟
+     * @return 结果
      */
-    public String save(BirdEntity birdEntity);
+    String save(BirdEntity birdEntity);
 
     /**
      * 删除
-     * @param pkId
-     * @return
+     * @param pkId 主键
+     * @return 结果
      */
-    public String delete(String pkId);
+    String delete(String pkId);
 
     /**
      * 查询
-     * @param pkId
-     * @return
+     * @param pkId 主键
+     * @return 结果
      */
-    public BirdEntity query(String pkId);
+    BirdEntity query(String pkId);
 }
