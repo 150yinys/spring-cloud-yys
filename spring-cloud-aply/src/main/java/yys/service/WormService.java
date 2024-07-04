@@ -1,14 +1,14 @@
 package yys.service;
 
-import yys.entity.BirdEntity;
+import yys.entity.WormEntity;
 
-public interface BirdService {
+public interface WormService {
     /**
      * 新增
-     * @param birdEntity 鸟
+     * @param wormEntity 虫
      * @return 结果
      */
-    String save(BirdEntity birdEntity);
+    String save(WormEntity wormEntity);
 
     /**
      * 删除
@@ -22,7 +22,7 @@ public interface BirdService {
      * @param pkId 主键
      * @return 结果
      */
-    BirdEntity query(String pkId);
+    WormEntity query(String pkId);
 
-    String toEat(String name);
+    void isEatted(String name);
 }
