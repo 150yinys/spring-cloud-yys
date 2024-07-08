@@ -1,14 +1,18 @@
 package yys.service.impl;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yys.entity.WormEntity;
 import yys.service.WormService;
 
-@Service("wormService")
+@Service
 public class WormServiceImpl implements WormService {
 
     private static final Logger log = Logger.getLogger(WormServiceImpl.class);
+
+    @Autowired
+    private TestServiceContext testServiceContext;//动态获取service
 
     /**
      * 新增
@@ -58,6 +62,7 @@ public class WormServiceImpl implements WormService {
      */
     @Override
     public void isEatted(String name) {
+        testServiceContext.getServices("wormFlowService").toGo("蚯蚓");
         log.info("虫被"+name+"吃掉了");
     }
 }

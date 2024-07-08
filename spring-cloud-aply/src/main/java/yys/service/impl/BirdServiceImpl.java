@@ -8,13 +8,16 @@ import yys.entity.BirdEntity;
 import yys.service.BirdService;
 import yys.service.WormService;
 
-@Service("birdService")
+@Service("BIRD_SERVICE")
 public class BirdServiceImpl implements BirdService {
 
     private static final Logger log = Logger.getLogger(BirdServiceImpl.class);
 
     @Autowired
     private WormService wormService;//虫
+
+    @Autowired
+    private TestServiceContext testServiceContext;//动态获取service
 
     /**
      * 新增
@@ -48,6 +51,7 @@ public class BirdServiceImpl implements BirdService {
      */
     @Override
     public BirdEntity query(String pkId) {
+        testServiceContext.getServices("birdFlowService").toGo("云雀");
         log.info("查询成功，参数："+pkId);
         BirdEntity birdEntity = new BirdEntity();
         birdEntity.setPkId("1231");
@@ -65,8 +69,9 @@ public class BirdServiceImpl implements BirdService {
      */
     @Override
     public String toEat(String name) {
-        log.info(name+"吃掉了虫");
+        testServiceContext.getServices("birdFlowService").preToDo("云雀");
+        log.info(name+"要吃掉虫");
         wormService.isEatted(name);
-        return name+"吃掉了虫";
+        return name+"要吃掉虫";
     }
 }
